@@ -1,6 +1,11 @@
 <div class="manage-local-container local-espace-container" ng-controller="manageLocalController as self">
     <div class="container-fluid">
         <div class="container container-pad" id="property-listings">
+            <button
+            type="submit"
+            class="btn"
+            ng-if="self.selectedLocal.id"
+            ng-click="self.selectedLocal = {}">Retour</button>
             <div class="row">
               <div class="col-md-12">
                 <h1 ng-if="!self.selectedLocal.id">Mes locaux</h1>

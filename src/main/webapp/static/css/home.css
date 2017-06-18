@@ -1,0 +1,308 @@
+body {
+    padding-top: 51px;
+    overflow-x: hidden;
+}
+
+#homeHeading {
+    color: #00bc9c;
+    text-align: center;
+}
+
+.btn.my-color {
+    border-color: #00bc9c;
+    background-color: #00bc9c;
+}
+
+.home-text {
+    text-align: center;
+}
+
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
+    background-color: #00bc9c;
+    color: white;
+}
+
+.navbar ul li:hover:after, .navbar ul li.active:after{
+    border-bottom: 3px solid white;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.navbar-O2O {
+    background-color: #00bc9c;
+    border-color: #00bc9c;
+    color: white;
+}
+
+.navbar-O2O a {
+    color: white;
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+.login h1 {
+    color: #00bc9c;
+    text-align: center;
+}
+
+.login body {
+    background-color: #444;
+    background: url(http://s18.postimg.org/l7yq0ir3t/pick8_1.jpg);
+
+}
+.login .form-signin input[type="text"] {
+    margin-bottom: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.login .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.login .form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.login .vertical-offset-100 {
+    padding-top: 100px;
+}
+.login .img-responsive {
+display: block;
+max-width: 100%;
+height: auto;
+margin: auto;
+}
+.login .panel {
+margin-bottom: 20px;
+background-color: rgba(255, 255, 255, 0.75);
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.local-espace-container .search-bar {
+    padding: 20px;
+}
+
+.local-espace-container .search-button {
+    float: right;
+}
+
+/**** BASE ****/
+.local-espace-container body {
+    color: #888;
+}
+.local-espace-container a {
+    color: #03a1d1;
+    text-decoration: none!important;
+}
+
+/**** LAYOUT ****/
+.local-espace-container .list-inline>li {
+    padding: 0 10px 0 0;
+}
+.local-espace-container .container-pad {
+    padding: 30px 70px;
+}
+
+.local-espace-container .select-type {
+    display: inline-block;
+    width: calc(100% - 7px);
+}
+.local-espace-container .btn-filtre {
+    height: 34px;
+}
+
+.local-espace-container .min-input {
+    width: 50%;
+}
+
+.dropdown-menu {
+    left: initial;
+}
+
+/**** MODULE ****/
+.local-espace-container .bgc-fff {
+    background-color: #fff!important;
+}
+.local-espace-container .box-shad {
+    -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+    box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+}
+.local-espace-container .brdr {
+    border: 1px solid #ededed;
+}
+
+/* Font changes */
+.local-espace-container .fnt-smaller {
+    font-size: .9em;
+}
+.local-espace-container .fnt-lighter {
+    color: #bbb;
+}
+
+/* Padding - Margins */
+.local-espace-container .pad-10 {
+    padding: 10px!important;
+}
+.local-espace-container .mrg-0 {
+    margin: 0!important;
+}
+.local-espace-container .btm-mrg-10 {
+    margin-bottom: 10px!important;
+}
+.local-espace-container .btm-mrg-20 {
+    margin-bottom: 20px!important;
+}
+
+/* Color  */
+.local-espace-container .clr-535353 {
+    color: #535353;
+}
+
+.local-espace-container img {
+    height: 320px;
+    width: 700px;
+}
+
+.local-espace-container .etiquette {
+    height: 500px;
+}
+
+.profil-container .card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.profil-container .card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.profil-container .card.hovercard .card-background {
+    height: 100px;
+}
+
+.profil-container h2 {
+    color: #00bc9c;
+}
+.profil-container .card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.profil-container .card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.profil-container .card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.profil-container .card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.profil-container .card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.profil-container .card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.profil-container .card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.profil-container .btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+
+

@@ -1,0 +1,35 @@
+<div class="local-espace-container" ng-controller="locationListController as self">
+    <div class="container-fluid">
+        <div class="container container-pad" id="property-listings">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Mes locations</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-repeat="location in self.userService.user.espaceLoue" class="col-sm-6">
+                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                        <div class="media">
+                            <a class="pull-left" target="_parent">
+                            <img ng-if="location.espace.photo" alt="image" class="img-responsive" src="{{location.espace.photo}}">
+                            <img ng-if="!location.espace.photo" alt="image" class="img-responsive" src="http://megamark.fr/wp-content/uploads/sites/2/2015/01/shutterstock_1651815591.jpg"></a>
+
+                            <div class="clearfix visible-sm"></div>
+
+                            <div class="media-body fnt-smaller">
+                                <a target="_parent">Du {{location.startDate}} au {{location.endDate}}</a>
+
+                                <h4 class="media-heading">{{location.espace.titre}}</h4>
+
+
+                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                    <li>{{location.espace.type}} | {{location.espace.local.ville}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

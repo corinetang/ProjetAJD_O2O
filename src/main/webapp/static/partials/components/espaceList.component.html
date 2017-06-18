@@ -1,0 +1,104 @@
+<div class="local-espace-container" ng-controller="espaceListController as self">
+    <div class="container-fluid">
+        <div class="container container-pad" id="property-listings">
+            <div class="row" ng-if="!self.selectedEspace.id">
+                <div class="search-bar col-xs-8 col-xs-offset-2">
+                    <div class="input-group">
+                        <div class="input-group-btn search-panel">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span id="search_concept">{{self.selectedFiltre.name}}</span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu " role="menu" ng-model="self.selectedFiltre">
+                                <li ng-repeat="filtre in self.optionsFilter" ng-click="self.filterOnClick(filtre)"><a>{{filtre.name}}</a></li>
+                            </ul>
+                        </div>
+                        <div class="select-type" ng-if="self.selectedFiltre.name == 'All'">
+                            <button type="button" class="btn btn-default dropdown-toggle col-xs-12" data-toggle="dropdown">
+                                <span id="search_concept">TOUS</span>
+                            </button>
+                        </div>
+                        <div class="select-type" ng-if="self.selectedFiltre.name == 'Type'">
+                            <button type="button" class="btn btn-default dropdown-toggle col-xs-12" data-toggle="dropdown">
+                                <span id="search_concept">{{self.selectedOption}}</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" ng-model="self.selectedOption">
+                                <li ng-repeat="option in self.selectedFiltre.options" ng-click="self.selectedOption = option"><a>{{option}}</a></li>
+                            </ul>
+                        </div>
+                        <div class="select-type" ng-if="self.selectedFiltre.name == 'Ville'">
+                            <input type="text" class="col-xs-8 form-control" placeholder="Ville" ng-model="self.ville">
+                        </div>
+                        <div class="select-type" ng-if="self.selectedFiltre.name == 'Prix' || self.selectedFiltre.name == 'Superficie'">
+                            <input type="number" class="min-input form-control" placeholder="Min." ng-model="self.min">
+                            <input type="number" class="min-input form-control" placeholder="Max." ng-model="self.max">
+                        </div>
+                        <span class="input-group-btn search-button">
+                            <button class="btn btn-default btn-filtre" type="button" ng-click="self.search()"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </div>
+                <div ng-repeat="espace in self.espaceList" class="col-sm-6 etiquette">
+                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                        <div class="media">
+                            <a class="pull-left" target="_parent">
+                            <img ng-if="espace.photo" alt="image" class="img-responsive" src="{{espace.photo}}"></a>
+                            <img ng-if="!espace.photo" alt="image" class="img-responsive" src="http://megamark.fr/wp-content/uploads/sites/2/2015/01/shutterstock_1651815591.jpg">
+
+                            <div class="clearfix visible-sm"></div>
+
+                            <div class="media-body fnt-smaller">
+                                <a target="_parent">{{espace.prix}} €</a>
+
+                                <h4 class="media-heading">{{espace.titre}}</h4>
+
+
+                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                    <li>{{espace.type}} | {{espace.superficie}} m2 | {{espace.local.ville}}</li>
+                                </ul>
+                                <button
+                                type="submit"
+                                class="btn btn-primary my-color"
+                                ng-if="self.userService.user.id"
+                                ng-click="self.selectEspace(espace)">Louer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class= "row" ng-if="self.selectedEspace.id">
+                <button
+                type="submit"
+                class="btn"
+                ng-click="self.selectedEspace = {}">Retour</button>
+                <div class="col-sm-12">
+                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                        <div class="media">
+                            <a class="pull-left" target="_parent">
+                            <img ng-if="self.selectedEspace.photo" alt="image" class="img-responsive" src="{{self.selectedEspace.photo}}">
+                            <img ng-if="!self.selectedEspace.photo" alt="image" class="img-responsive" src="http://megamark.fr/wp-content/uploads/sites/2/2015/01/shutterstock_1651815591.jpg">
+                            </a>
+                            <div class="clearfix visible-sm"></div>
+                            <div class="media-body fnt-smaller">
+                                <a target="_parent">{{self.selectedEspace.prix}} €</a>
+                                <h4 class="media-heading">{{self.selectedEspace.titre}}</h4>
+                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                    <li>{{self.selectedEspace.type}} | {{self.selectedEspace.superficie}} m2 |  {{self.selectedEspace.local.ville}}</li>
+                                </ul>
+                                <p class="hidden-xs">{{selectedEspace.description}}</p>
+                                <li>Debut</li>
+                                <md-datepicker md-date-filter="self.disableSelectedDays" ng-model="self.selectedStartDate"></md-datepicker>
+                                <li>Fin</li>
+                                <md-datepicker md-date-filter="self.disableSelectedDays" ng-model="self.selectedEndDate"></md-datepicker>
+                                </br>
+                                <button
+                                type="submit"
+                                class="btn btn-primary my-color"
+                                ng-click="self.louerEspace()">Louer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

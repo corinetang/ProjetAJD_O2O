@@ -1,0 +1,172 @@
+<div class="manage-local-container local-espace-container" ng-controller="manageLocalController as self">
+    <div class="container-fluid">
+        <div class="container container-pad" id="property-listings">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 ng-if="!self.selectedLocal.id">Mes locaux</h1>
+                <h1 ng-if="self.selectedLocal.id">Les espaces du local : {{self.selectedLocal.nom}}</h1>
+              </div>
+            </div>
+            <div
+            class="local-container"
+            ng-if="!self.selectedLocal.id">
+                <div class="row">
+                    <div
+                    class="col-sm-6 etiquette"
+                    ng-repeat="local in self.userService.user.espaceALouer"
+                    ng-click="self.selectLocal(local)">
+                        <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                            <div class="media">
+                                <a class="pull-left" target="_parent">
+                                <img ng-if="local.photo" alt="image" class="img-responsive" src="{{local.photo}}">
+                                <img ng-if="!local.photo" alt="image" class="img-responsive" src="http://images.prd.mris.com/image/V2/1/Yu59d899Ocpyr_RnF0-8qNJX1oYibjwp9TiLy-bZvU9vRJ2iC1zSQgFwW-fTCs6tVkKrj99s7FFm5Ygwl88xIA.jpg"></a>
+
+                                <div class="clearfix visible-sm"></div>
+
+                                <div class="media-body fnt-smaller">
+                                    <a target="_parent"></a>
+
+                                    <h4 class="media-heading">{{local.nom}}</h4>
+
+
+                                    <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                        <li>{{local.ville}}</li>
+                                    </ul>
+
+                                    <p class="hidden-xs">{{local.address}}</p>
+                                </div>
+                            </div>
+                        </div><!-- End Listing-->
+                    </div><!-- End Col -->
+                    <div class="col-sm-6">
+                        <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                            <div
+                            class="media"
+                            ng-if="!self.editLocal.edit"
+                            ng-click="self.editLocal.edit = true">
+                                <a class="pull-left" target="_parent">
+
+                                <div class="clearfix visible-sm"></div>
+
+                                <div class="media-body fnt-smaller">
+                                    <a target="_parent"></a>
+
+                                    <h4 class="media-heading">Ajouter un local</h4>
+                                </div>
+                            </div>
+                            <div ng-if="self.editLocal.edit">
+                                <form name="localForm">
+                                    <div class="form-group">
+                                        <label>Nom</label>
+                                        <input type="text" class="form-control" aria-describedby="Nom" placeholder="Nom" ng-model="self.editLocal.nom" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ville</label>
+                                        <input type="text" class="form-control" placeholder="Ville" ng-model="self.editLocal.ville" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Adresse</label>
+                                        <input type="text" class="form-control" placeholder="Adresse" ng-model="self.editLocal.address" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Photo</label>
+                                        <input type="text" class="form-control" placeholder="Lien photo" ng-model="self.editLocal.photo">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" ng-disabled="localForm.$invalid" ng-click="self.addLocal()">Ajouter</button>
+                                    <button type="cancel" class="btn" ng-click="self.editLocal.edit=false">Annuler</button>
+                                </form>
+                            </div>
+                        </div><!-- End Listing-->
+                    </div><!-- End Col -->
+
+                </div><!-- End row -->
+            </div>
+            <div
+            class="espace-container"
+            ng-if="self.selectedLocal.id">
+                <div class="row">
+                    <div class="col-sm-6 etiquette" ng-repeat="espace in self.espaces">
+                        <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                            <div class="media">
+                                <a class="pull-left" target="_parent">
+                                <img ng-if="espace.photo" alt="image" class="img-responsive" src="{{espace.photo}}">
+                                <img ng-if="!espace.photo" alt="image" class="img-responsive" src="http://images.prd.mris.com/image/V2/1/Yu59d899Ocpyr_RnF0-8qNJX1oYibjwp9TiLy-bZvU9vRJ2iC1zSQgFwW-fTCs6tVkKrj99s7FFm5Ygwl88xIA.jpg"></a>
+
+                                <div class="clearfix visible-sm"></div>
+
+                                <div class="media-body fnt-smaller">
+                                    <a target="_parent">{{espace.prix}} €</a>
+
+                                    <h4 class="media-heading">{{espace.titre}}</h4>
+
+
+                                    <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                        <li>{{espace.type}}</li>
+                                    </ul>
+
+                                    <p class="hidden-xs">{{espace.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                            <div
+                            class="media"
+                            ng-if="!self.editEspace.edit"
+                            ng-click="self.editEspace.edit = true">
+                                <a class="pull-left" target="_parent"></a>
+
+                                <div class="clearfix visible-sm"></div>
+
+                                <div class="media-body fnt-smaller">
+                                    <a target="_parent"></a>
+
+                                    <h4 class="media-heading">Ajouter un espace</h4>
+                                </div>
+                            </div>
+                            <div class="media" ng-if="self.editEspace.edit">
+                                <form name="espaceForm">
+                                    <div class="form-group">
+                                        <label>Titre</label>
+                                        <input type="text" class="form-control" placeholder="Titre" ng-model="self.editEspace.titre" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Type</label>
+                                        <select class="form-control" id="exampleSelect1">
+                                          <option value="BUREAU">BUREAU</option>
+                                          <option value="ETAGE">ETAGE</option>
+                                          <option value="SALLE_REUNION">SALLE REUNION</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Superficie</label>
+                                        <input type="text" class="form-control" placeholder="Superficie" ng-model="self.editEspace.superficie" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Prix par jour</label>
+                                        <input type="text" class="form-control" placeholder="Prix" ng-model="self.editEspace.prix" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea
+                                        rows="3"
+                                         class="form-control"
+                                        ng-model="self.editEspace.description"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Photo</label>
+                                        <input type="text" class="form-control" placeholder="Lien photo" ng-model="self.editEspace.photo">
+                                    </div>
+
+                                    <button ng-disabled="espaceForm.$invalid" class="btn btn-primary" ng-click="self.addEspace()">Ajouter</button>
+                                    <button class="btn" ng-click="self.editEspace = {}">Annuler</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
